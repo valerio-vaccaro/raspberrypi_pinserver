@@ -102,9 +102,9 @@ python3 epd_2in13_test.py
 
 ```
 sudo apt install nodejs npm
-npm install pm2
-pm2 start /opt/docker.sh
-pm2 start /opt/display.sh
-pm2 save
-pm2 startup
+sudo npm install -g pm2
+sudo pm2 start /opt/raspberrypi_pinserver/docker.sh
+sudo pm2 start /opt/raspberrypi_pinserver/display.sh
+sudo pm2 save
+sudo pm2 startup
 ```
