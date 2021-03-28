@@ -1,6 +1,11 @@
 # Raspberrypi Pinserver
 
-Blockstream Blind Pin Server installation for Raspberry Pi Zero
+Blockstream Blind Pin Server installation for Raspberry Pi Zero.
+
+## Hardware needed
+- Raspberry Pi Zero WH
+- UPS Lite V1.2 UPS
+- Waveshare 2.9inch e-Paper Module
 
 ## Install Docker
 
