@@ -36,6 +36,7 @@ pip install --require-hashes -r pinserver/requirements.txt
 python -m pinserver.generateserverkey
 docker build -f pinserver/Dockerfile pinserver/ -t dockerized_pinserver
 mkdir pinsdir
+chmod 0777 pinsdir
 ```
 
 (Optional) Start the docker that contain pin server.
@@ -50,11 +51,20 @@ docker run -v $PWD/server_private_key.key:/server_private_key.key -v $PWD/pinsdi
 Install tor and configure on port 8096.
 
 ```
-sudo apt install tor
+sudo apt -y install tor
 sudo sed -i -r 's/#HiddenServiceDir \/var\/lib\/tor\/hidden_service\//HiddenServiceDir \/var\/lib\/tor\/hidden_service\//' /etc/tor/torrc
 sudo sed -i -r 's/#HiddenServicePort 80 127.0.0.1:80/HiddenServicePort 8096 127.0.0.1:8096/' /etc/tor/torrc
 sudo /etc/init.d/tor restart
 
+```
+
+## Install apache and share pubkey
+
+Install apache in order to share server pubkey.
+
+```
+sudo apt install -y apache2
+cp /opt/server_public_key.pub /var/www/html/
 ```
 
 ## Install Power
@@ -105,11 +115,33 @@ python3 epd_2in13_test.py
 
 ## Start
 
+Start docker and display scripts with pm2.
+
 ```
-sudo apt install nodejs npm
+sudo apt install -y nodejs npm
 sudo npm install -g pm2
 sudo pm2 start /opt/raspberrypi_pinserver/docker.sh
 sudo pm2 start /opt/raspberrypi_pinserver/display.sh
 sudo pm2 save
 sudo pm2 startup
+```
+
+## Client
+
+Create a couple of keys for your client and store in the `client/keys` folder.
+
+Download the server public key on client directory (only on local network, for example we will use the ip 192.168.8.151, the ip associated with your board is present in the eink).
+
+```
+cd client/key
+wget http://192.168.8.151/server_public_key.pub
+cd ..
+```
+
+Configure the example, set the pinserver_url var with the tor url (the same you can read in the qrcode on eink) and port 8096.
+
+Execute the example, you will need a running tor proxy.
+
+```
+python3 main_pinserver_client.py
 ```
