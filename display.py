@@ -97,6 +97,7 @@ def main():
         qr.add_data(tor)
         qr.make(fit=True)
         img = qr.make_image(fill_color="black", back_color="white")
+        img.save('/var/www/html/tor.png')
         image.paste(img, (140,10))
         epd.display(epd.getbuffer(image))
         epd.sleep()

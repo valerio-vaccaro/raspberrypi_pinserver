@@ -58,13 +58,16 @@ sudo /etc/init.d/tor restart
 
 ```
 
-## Install apache and share pubkey
+## Install apache and web page
 
-Install apache in order to share server pubkey.
+Install apache in order to share server pubkey and minimal config page.
 
 ```
-sudo apt install -y apache2
+cd /opt
+git clone https://github.com/valerio-vaccaro/raspberrypi_pinserver.git
+sudo apt install -y apache2 php libapache2-mod-php
 cp /opt/server_public_key.pub /var/www/html/
+cp -r /opt/raspberrypi_pinserver/web/* /var/www/html/
 ```
 
 ## Install Power

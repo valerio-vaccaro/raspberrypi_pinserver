@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="qrcode.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <meta name="author" content="Valerio Vaccaro">
+    <title>Pinserver</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron mt-3"> <img src="btc.png" width="400">
+        <hr>
+        <h1>Introduction</h1>
+        <p>The pinserver is an oracle server that helps enforce 3 PIN tentatives on Blockstream Jade.</p>
+        <hr>
+        <hr>
+        <h1>Management</h1>
+        <h3>Tor</h3>
+        <p>Pinserver can be used via TOR connection, the address of this server is in the following qrcode.</p>
+        <center><img src="tor.png"/></center>
+        <hr>
+        <h3>Pubkey</h3>
+        <p>You can download the Public key of the pinserver using the following button.</p>
+        <center><a class="btn btn-success btn-lg" href="/server_public_key.pub" target="_blank">Download PubKey</a></center>
+        <hr>
+        <h3>Shutdown</h3>
+        <p>If you want shutdown the board press the following button and wait 60 seconds before cut the power.</p>
+        <center><a class="btn btn-danger btn-lg" href="/shutdown.php" target="_blank">Turn off the board now!</a></center>
+        <hr>
+        <hr>
+        <h1>Bitcoin whitepaper</h1>
+        <p>This pinserver contain a copy of the Bitcoin whitepaper! Dowload it using the following button.</p>
+        <center><a class="btn btn-primary btn-lg" href="/bitcoin.pdf" target="_blank">Download the Bitcoin whitepaper</a></center>
+        <hr>
+      </div>
+    </div>
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark"> <a class="navbar-brand" href="">Pinserver</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"> <a class="nav-link" href="#" target="_blank">Home</a>
+          </li>
+          <li class="nav-item"> <a class="nav-link" href="https://github.com/valerio-vaccaro/raspberrypi_pinserver" target="_blank">Gitlab</a>
+          </li>
+          <li class="nav-item"> <a class="nav-link" href="https://github.com/Blockstream/Jade" target="_blank">Jade</a> </li>
+        </ul>
+      </div>
+    </nav>
+
+
+<style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style></body></html>
