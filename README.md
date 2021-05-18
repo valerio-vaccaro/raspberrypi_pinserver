@@ -70,6 +70,13 @@ cp /opt/server_public_key.pub /var/www/html/
 cp -r /opt/raspberrypi_pinserver/web/* /var/www/html/
 ```
 
+Give www-data user sudo priviledges (used for shutdown script).
+
+```
+sudo echo "www-data ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/010_www-data-nopasswd
+```
+
+
 ## Install Power
 
 Enable I2C interface from raspi-config and test using the following program.
@@ -77,7 +84,6 @@ Enable I2C interface from raspi-config and test using the following program.
 ```
 git clone https://github.com/linshuqin329/UPS-Lite
 sudo pip3 install smbus
-
 ```
 
 (Optional) Check functionalities
