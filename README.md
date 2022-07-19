@@ -115,6 +115,14 @@ cd e-Paper/RaspberryPi_JetsonNano/python
 sudo pip3 install .
 ```
 
+Install start and stop scripts.
+
+```
+ln -s /opt/raspberrypi_pinserver/start.sh /etc/rc1.d/K99pinserverstart
+ln -s /opt/raspberrypi_pinserver/stop.sh /etc/rc0.d/K99pinserverstop
+ln -s /opt/raspberrypi_pinserver/stop.sh /etc/rc6.d/K99pinserverstop
+```
+
 Optionally test the display with examples.
 
 ```
