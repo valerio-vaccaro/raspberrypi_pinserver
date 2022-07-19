@@ -57,7 +57,7 @@ def main():
     try:
         epd = epd2in13.EPD()
         epd.init(epd.lut_full_update)
-        epd.Clear(0xFF)
+        #epd.Clear(0xFF)
 
         image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(image)
@@ -78,7 +78,7 @@ def main():
 
         draw.text((5, 65), "STOPPING", font = font15, fill = 0)
 
-        draw.text((5, 85), "Wait 3 mins", font = font15, fill = 0)
+        draw.text((5, 85), "Wait 3 minutes", font = font15, fill = 0)
 
         time = str(datetime.datetime.now()).split('.')[0]
         draw.text((5, 105), time, font = font15, fill = 0)

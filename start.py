@@ -57,7 +57,7 @@ def main():
     try:
         epd = epd2in13.EPD()
         epd.init(epd.lut_full_update)
-        epd.Clear(0xFF)
+        #epd.Clear(0xFF)
 
         image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(image)
