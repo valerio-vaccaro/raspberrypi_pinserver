@@ -118,9 +118,29 @@ sudo pip3 install .
 Install start and stop scripts.
 
 ```
-ln -s /opt/raspberrypi_pinserver/start.sh /etc/rc1.d/K99pinserverstart
-ln -s /opt/raspberrypi_pinserver/stop.sh /etc/rc0.d/K99pinserverstop
-ln -s /opt/raspberrypi_pinserver/stop.sh /etc/rc6.d/K99pinserverstop
+vim /etc/systemd/system/start_and_stop.service
+```
+
+and copy the following contents
+
+```
+[Unit]
+Description=Run Scripts at Start and Stop
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/opt/raspberrypi_pinserver/start.sh
+ExecStop=/opt/raspberrypi_pinserver/stop.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+
+and enable the script.
+
+```
+systemctl enable start_and_stop
 ```
 
 Optionally test the display with examples.
